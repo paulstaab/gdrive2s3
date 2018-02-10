@@ -11,3 +11,7 @@ RUN wget -q https://downloads.rclone.org/rclone-current-linux-amd64.zip -O /tmp/
   && ls /tmp \
   && mv /tmp/rclone-v*-linux-amd64/rclone /usr/local/bin/ \
   && rm -r /tmp/*
+
+RUN useradd --create-home --shell /bin/bash rclone
+USER rclone
+WORKDIR /home/rclone

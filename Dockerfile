@@ -12,6 +12,7 @@ RUN wget -q https://downloads.rclone.org/rclone-current-linux-amd64.zip -O /tmp/
   && mv /tmp/rclone-v*-linux-amd64/rclone /usr/local/bin/ \
   && rm -r /tmp/*
 
+# Add a non-privileged user
 RUN adduser -S rclone
 USER rclone
 WORKDIR /home/rclone

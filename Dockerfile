@@ -14,6 +14,7 @@ RUN wget -q https://downloads.rclone.org/rclone-current-linux-amd64.zip -O /tmp/
 
 # Copy runscript
 COPY backup_gdrive_to_s3.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/backup_gdrive_to_s3.sh 
 
 # Add a non-privileged user
 RUN adduser -S rclone

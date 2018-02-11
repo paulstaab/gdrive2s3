@@ -30,4 +30,4 @@ password = ${enc_secret1}
 password2 = ${enc_secret2}
 EOF
 
-rclone sync -v gdrive: s3encrypted:
+rclone sync ${rclone_args} gdrive: s3encrypted:

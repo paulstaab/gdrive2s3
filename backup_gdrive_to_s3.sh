@@ -40,4 +40,8 @@ if [ "$?" == "0" ]; then
 	echo "gdrive2s3: Backup finished sucessfully"
 else
 	echo "gdrive2s3: Backup failed"
+	exit 1
 fi
+
+exit 0
+

@@ -7,8 +7,8 @@ mkdir -p .config/rclone
 cat <<EOF > .config/rclone/rclone.conf
 [gdrive]
 type = drive
-client_id = 
-client_secret = 
+client_id = ${gdrive_cliend_id}
+client_secret = ${gdrive_cliend_secret}
 service_account_file = 
 token = ${gdrive_token}
 

@@ -1,8 +1,7 @@
-#/bin/sh
+#/bin/sh -
 
-echo "gdrive2s3: Staring Backup"
+echo "Creating rclone config"
 
-# Create config file
 mkdir -p .config/rclone
 cat <<EOF > .config/rclone/rclone.conf
 [gdrive]
@@ -31,17 +30,8 @@ filename_encryption = off
 directory_name_encryption = false
 password = ${enc_secret1}
 password2 = ${enc_secret2}
+
+[local]
+type = local
 EOF
-
-# Execute the backup
-rclone sync ${rclone_args} gdrive: s3encrypted:
-
-if [ "$?" == "0" ]; then 
-	echo "gdrive2s3: Backup finished sucessfully"
-else
-	echo "gdrive2s3: Backup failed"
-	exit 1
-fi
-
-exit 0
 

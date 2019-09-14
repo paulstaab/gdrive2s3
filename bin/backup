@@ -1,0 +1,17 @@
+#/bin/sh
+
+echo "gdrive2s3: Staring Backup"
+
+
+# Execute the backup
+rclone sync ${rclone_args} gdrive: s3encrypted:
+
+if [ "$?" == "0" ]; then 
+	echo "gdrive2s3: Backup finished sucessfully"
+else
+	echo "gdrive2s3: Backup failed"
+	exit 1
+fi
+
+exit 0
+

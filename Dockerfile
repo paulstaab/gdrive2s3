@@ -13,8 +13,8 @@ RUN wget -q https://downloads.rclone.org/rclone-current-linux-amd64.zip -O /tmp/
   && rm -r /tmp/*
 
 # Copy runscript
-COPY backup_gdrive_to_s3.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/backup_gdrive_to_s3.sh 
+COPY bin /usr/local/bin/
+RUN chmod +x /usr/local/bin/*
 
 # Add a non-privileged user
 RUN adduser -S rclone
@@ -22,4 +22,6 @@ USER rclone
 WORKDIR /home/rclone
 
 # Start the backup automatically
-CMD /usr/local/bin/backup_gdrive_to_s3.sh
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD backup
+

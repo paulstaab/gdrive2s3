@@ -1,0 +1,17 @@
+#/bin/sh
+
+echo "gdrive2s3: Downloading backup"
+
+# Execute the backup
+mkdir -p restore
+rclone sync ${rclone_args} s3encrypted: local:restore/
+
+if [ "$?" == "0" ]; then 
+	echo "gdrive2s3: Restore finished sucessfully"
+else
+	echo "gdrive2s3: Restore failed"
+	exit 1
+fi
+
+exit 0
+

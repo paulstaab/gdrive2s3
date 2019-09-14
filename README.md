@@ -3,7 +3,7 @@
 This repo contains a small Docker container, which I use to backup my Google Drive to AWS S3.
 The container relies on [rclone](https://rclone.org), which does all the
 heavy lifting. I run it as a Scheduled Task on AWS Fargate for a few cents per month,
-but it should run wherever you can execute Docker containers.
+but it should be executable wherever you can execute Docker containers.
 
 **Do not use this container unless you fully understand what it is doing.
 Your files are at risk. I take no responsibility for lost data.**
@@ -46,3 +46,4 @@ can not judge how reliable the encryption is. Your files are definitely not secu
 if you are running the container in a cloud service (like I do), since you have
 to upload both encryption secret and the access token for your Google Drive to
 the service.
+

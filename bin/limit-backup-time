@@ -1,0 +1,4 @@
+#/bin/sh
+
+/bin/sh -c "sleep 3600 && echo 'Error: Timelimit exceeded' &&  killall -9 rclone" &
+

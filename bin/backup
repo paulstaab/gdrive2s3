@@ -1,7 +1,8 @@
 #/bin/sh
 
-echo "gdrive2s3: Staring Backup"
+limit-backup-time
 
+echo "gdrive2s3: Staring Backup"
 
 # Execute the backup
 rclone sync ${rclone_args} gdrive: s3encrypted:
